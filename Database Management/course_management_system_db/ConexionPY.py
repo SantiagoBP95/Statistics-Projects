@@ -1,10 +1,14 @@
+import os
+
 from dash import Dash, html, dcc
 import plotly.express as px
 import psycopg2
 try:
-    connection = psycopg2.connect(host = 'localhost', user = 'postgres',
-                                  password = '123456789', database = 'Proyecto',
-                                  port = 5433)
+    connection = psycopg2.connect(host = os.environ.get('DB_HOST', 'localhost'),
+                                  user = os.environ.get('DB_USER', 'postgres'),
+                                  password = os.environ['DB_PASSWORD'],
+                                  database = os.environ.get('DB_NAME', 'Proyecto'),
+                                  port = os.environ.get('DB_PORT', '5433'))
     print('Conexión exitosa')
     cursor = connection.cursor()
     cursor.execute('select * from materia;')

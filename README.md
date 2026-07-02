@@ -16,7 +16,9 @@ inference, and database management.
 ### Database Management
 - `course_management_system_db/` — relational database design for a course/subscription
   management system (PostgreSQL): ER diagram, table scripts, seed data, and a Dash/Plotly
-  dashboard (`Dashboard.py`) querying enrollment and course metrics.
+  dashboard (`Dashboard.py`) querying enrollment and course metrics. Connection settings are
+  read from environment variables — copy `.env.example` to `.env` and fill in your local
+  Postgres credentials before running `Dashboard.py` / `ConexionPY.py`.
 
 ## Technologies
 - Python (NumPy, Pandas, Matplotlib, SciPy, Dash/Plotly, psycopg2)
